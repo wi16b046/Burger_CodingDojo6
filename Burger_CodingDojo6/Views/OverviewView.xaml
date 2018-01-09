@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Burger_CodingDojo6.Views.OverviewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Burger_CodingDojo6.Views"
+             mc:Ignorable="d" 
+             DataContext="{Binding Source={StaticResource Locator}, Path=Overview}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListBox  >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border  Height="100" Width="186" BorderBrush="Black" BorderThickness="2" CornerRadius="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="80" VerticalAlignment="Center"   />
+                                <Label VerticalAlignment="Center" Width="120" FontSize="15"  />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ItemsControl Margin="5" Grid.Column="1"   >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="5" Margin="5" Width="350" Height="200" BorderBrush="Black" BorderThickness="2" CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+
+                                <Image VerticalAlignment="Center" Source="{Binding Pic}" />
+                                <Label FontSize="18" Grid.Column="1" VerticalAlignment="Center"  />
+                                <Label FontSize="18" Grid.Column="2" VerticalAlignment="Center"  />
+                                <Button Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="3">Buy</Button>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            
+        </Grid>
+    </Grid>
+</UserControl>
